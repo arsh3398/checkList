@@ -20,16 +20,21 @@ mongoose.connect('mongodb+srv://Arsh:7902052650@mongodbpractice.n0ehyit.mongodb.
     console.log(error)
 })
 
-app.listen(3000,function checkDB(err){
-    if(err)
-    {
-        console.log(err);
-    }
-    else
-    {
-        console.log("port connected")
-    }
+const PORT = process.env.PORT || 3000;  // Use Heroku's assigned port or default to 3000
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
+
+// app.listen(3000,function checkDB(err){
+//     if(err)
+//     {
+//         console.log(err);
+//     }
+//     else
+//     {
+//         console.log("port connected")
+//     }
+// });
 app.use(cors());
 app.use(express.json());
 app.use(routes);
